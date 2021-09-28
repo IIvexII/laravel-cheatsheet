@@ -43,7 +43,8 @@ Route::get('/admin/home', function(){
     PS C:\project> php artisan make:controller --resource homeController
     ```
 * Use it in Routes
-  * ```php
+  * Basic Routing
+    ```php
         // including the controller
         use App\Http\Controllers\homeController
         // Routing to the controller named homeController
