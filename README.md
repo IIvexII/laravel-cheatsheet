@@ -4,7 +4,9 @@
 
 ```php
 // We can use rout to make urls for our website
+// Simple method
 Route::get('/home', fn()=>view('homePage'));
+
 // Sending the home page a set of values via
 // associated array. 'var' will become variable
 // in the home page.
@@ -22,6 +24,17 @@ Route::get('/admin/home', function(){
 })->name('shortName');
 ```
 
+### Controller
+
+* This will create a basic controller
+```console
+PS C:\project> php artisan make:controller postController
+```
+
+* Create a controller with resource methods like index, create, show, etc
+```console
+PS C:\project> php artisan make:controller --resource postController
+```
 ### View
 
 ```php
