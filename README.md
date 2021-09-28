@@ -1,7 +1,10 @@
 # Laravel
 
-1. [Routes](#Routes)
-2. [Controller](#Controller)
+- [Laravel](#laravel)
+    - [Routes](#routes)
+    - [Controller](#controller)
+    - [View](#view)
+    - [Cahce](#cahce)
 
 ### Routes
 
@@ -29,15 +32,25 @@ Route::get('/admin/home', function(){
 
 ### Controller
 
-* This will create a basic controller
-```console
-PS C:\project> php artisan make:controller postController
-```
+* Create Controller
+    * This will create a basic controller
+    ```console
+    PS C:\project> php artisan make:controller homeController
+    ```
 
-* Create a controller with resource methods like index, create, show, etc
-```console
-PS C:\project> php artisan make:controller --resource postController
-```
+    * Create a controller with resource methods like index, create, show, etc
+    ```console
+    PS C:\project> php artisan make:controller --resource homeController
+    ```
+* Use it in Routes
+  * ```php
+        // including the controller
+        use App\Http\Controllers\homeController
+        // Routing to the controller named homeController
+        // and running the method name index()
+        Route::get('/', [homeController::class, 'index']);
+    ```
+
 ### View
 
 ```php
