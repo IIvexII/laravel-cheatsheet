@@ -1,5 +1,8 @@
 # Laravel
 
+1. [Routes](#Routes)
+2. [Controller](#Controller)
+
 ### Routes
 
 ```php
