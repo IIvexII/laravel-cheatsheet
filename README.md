@@ -51,6 +51,13 @@ Route::get('/admin/home', function(){
         // and running the method name index()
         Route::get('/', [homeController::class, 'index']);
     ```
+    * Passing Parameter
+    ```php
+    // parameter will be passed to the function index($name)
+    // It will throw error if the index() does not take para-
+    // meter
+    Route::get('/post/{name}', [postController::class, 'index']);
+    ```
 
 ### View
 
