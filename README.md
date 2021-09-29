@@ -5,6 +5,7 @@
     - [Controller](#controller)
     - [View](#view)
     - [Cahce](#cahce)
+    - [Blade](#blade)
 
 ### Routes
 
@@ -93,3 +94,27 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
     return file_get_contents('file_path');
 });
 ```
+
+### Blade
+
+* Layouts
+  * app.blade.php
+    ```php
+        {{$var_name}}   // it will print value of variable
+
+        /* 
+            Extands the page with basic layout
+            and reusable code like header and
+            footer.
+        */
+        @extends('layouts.templateName')
+
+        // Used in template layout which place the
+        // section with same section name to its place.
+        @yield('sectionName')
+
+        @section('sectionName')
+            // section code inside in html/css/js
+        @endsection
+
+    ```
