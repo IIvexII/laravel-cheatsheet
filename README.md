@@ -7,6 +7,7 @@
     - [Cahce](#cahce)
     - [Blade](#blade)
     - [Migrations](#migrations)
+    - [Raw Queries](#raw-queries)
 
 ### Routes
 
@@ -148,4 +149,31 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
 * Make a column in an existing table
     ```console
         php artisan make:migration add_new_col_in_posts --table=posts
+    ```
+### Raw Queries
+
+* Importing the namespace
+    ```php
+      use Illuminate\Support\Facades\DB;
+    ```
+* CRUD
+    ```php
+
+    // Creating post
+    DB::insert(
+        'INSERT into posts (title, content) values (?, ?)',
+        ['someTitle', 'Some Content']
+    );    
+    
+    // Reading
+    DB::select('SELECT * FROM posts');
+
+    // Updating
+    DB::update(
+        'UPDATE posts SET title = "Demo" where title = ?',
+         ['someTitle']
+    );
+
+    // Deleting
+    DB::delete('DELETE FROM posts WHERE title = ?', ['Demo']);
     ```
