@@ -117,4 +117,11 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
             // section code inside in html/css/js
         @endsection
 
+        @if (condition)
+            <!-- code -->
+        @endif
+
+        @foreach($arr as value)
+            <!-- code -->
+        @endforeach
     ```
