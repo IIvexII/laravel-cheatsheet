@@ -8,6 +8,7 @@
     - [Blade](#blade)
     - [Migrations](#migrations)
     - [Raw Queries](#raw-queries)
+    - [Eloquent](#eloquent)
 
 ### Routes
 
@@ -176,4 +177,29 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
 
     // Deleting
     DB::delete('DELETE FROM posts WHERE title = ?', ['Demo']);
+    ```
+
+### Eloquent
+
+  * Create a model
+    ```console
+    # -m for migration
+    php artisan make:model Post -m
+    ```
+
+  * Rading from database
+    ```php
+        $posts = Post::all();
+    ```
+  * Search in the database
+    ```php
+        $id = 1;
+        // find the posts from table where id = 1
+        $post = Post::find($id);
+
+        // via where('column name', 'matching value')
+        $post = Post::where('id',$id);
+
+        // print the title of that post
+        echo $post->title;
     ```
