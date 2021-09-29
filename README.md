@@ -6,6 +6,7 @@
     - [View](#view)
     - [Cahce](#cahce)
     - [Blade](#blade)
+    - [Migrations](#migrations)
 
 ### Routes
 
@@ -99,7 +100,7 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
 
 * Layouts
   * app.blade.php
-    ```php
+    ```blade
         {{$var_name}}   // it will print value of variable
 
         /* 
@@ -124,4 +125,27 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
         @foreach($arr as value)
             <!-- code -->
         @endforeach
+    ```
+
+### Migrations
+
+
+* Create Migration file with boilerplate code of posts table
+    ```console
+        # create table named 'posts'
+        php artisan make:migration create_table_post --create='posts'
+    ```
+* Migrate all the files
+    ```console
+        php artisan migrate
+    ```
+
+* Rollback a migration
+    ```console
+        php artisan migrate:rollback
+    ```
+
+* Make a column in an existing table
+    ```console
+        php artisan make:migration add_new_col_in_posts --table=posts
     ```
