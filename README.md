@@ -60,16 +60,27 @@ Route::get('/admin/home', function(){
   Route::get('/post/{name}', [postController::class, 'index']);
   ```
 
+  * Using resource
+  ```php
+  // resource will automatically create the urls according
+  // to the methods of the controller
+  Route::resource('post', postController::class);
+  ```
+
 ### View
 
 ```php
+// Filename without blade.php extension
+view('filename');
 
-view('filename placed in view folder');
-
-// associative array is optional
+// Passing data to view
 view('filename placed in view folder', [
     'variable_name' => "value"
     ]);
+
+view("filename")->with('var_name', 'value');
+
+view('filename', compact('var_name'));
 ```
 
 ### Cahce
