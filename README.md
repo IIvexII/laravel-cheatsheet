@@ -191,6 +191,7 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
     ```php
         $posts = Post::all();
     ```
+
   * Search in the database
     ```php
         $id = 1;
@@ -203,3 +204,32 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
         // print the title of that post
         echo $post->title;
     ```
+
+    * Creating record
+        ```php
+            // create new instence
+            $posts = new Post;
+
+            // Setting the properties.
+            // These are the same as the columns of that table 
+            $posts->title = "Some Title";
+            $posts->content = "Some Content";
+
+            // Saving data into the database.
+            $posts->save();
+
+            // 2nd method is below
+            Post::create([
+                'title' => 'Some Title',
+                'content' => 'Some Content'
+            ]);
+        ```
+    * Delete Record
+        ```php
+            // 1st method
+            $post = Post::find($id);
+            $post->delete();
+
+            // 2nd method
+            Post::destroy($id);
+        ```
