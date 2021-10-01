@@ -9,6 +9,7 @@
     - [Migrations](#migrations)
     - [Raw Queries](#raw-queries)
     - [Eloquent](#eloquent)
+    - [Eloquent Relationship](#eloquent-relationship)
 
 ### Routes
 
@@ -233,3 +234,44 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
             // 2nd method
             Post::destroy($id);
         ```
+
+### Eloquent Relationship
+
+* hasOne() relation
+  * Suppose we have a relation of credit card with customer which is one to one which means every customer will have 1 credit card.
+  
+  App\Models\Customer.php
+  ```php
+    <?php
+
+    namespace App\Models;
+
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+
+    class Customer extends Model
+    {
+        public function creditCard()
+        {
+            // One to One relationship
+            /*
+            \--------------------------------------------
+            \ It means each customer hasOne credit card.
+            \--------------------------------------------
+            */
+            return $this->hasOne('App\Models\CreditCard');
+
+            // Parameters:
+            /*
+              1. Model name with which we are creating relation
+              2. (optional) name of column in relational table with which we are relating to like customer_id.
+              3. (optional) name of column our customer table like id.
+            */
+        }
+    }
+  ```
+  * We need one credit card model and should have one customer_id or any unique column which represent to whome it blongs to.
+  * We can now get card belongs to a customer via this:
+    ```php
+        Customer::find($id)->creditCard;
+    ```
