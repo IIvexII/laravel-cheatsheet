@@ -264,14 +264,14 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
             // Parameters:
             /*
               1. Model name with which we are creating relation
-              2. (optional) name of column in relational table with which we are relating to like customer_id.
+              2. (optional) name of column in relational table with
+                 which we are relating to like customer_id.
               3. (optional) name of column our customer table like id.
             */
         }
     }
   ```
-  * We need one credit card model and should have one customer_id or
-any unique column which represent to whome it blongs to.
+  * We need one credit card model and should have one customer_id or any unique column which represent to whome it blongs to.
   * We can now get card belongs to a customer via this:
     ```php
         Customer::find($id)->creditCard;
