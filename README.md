@@ -276,3 +276,22 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
     ```php
         Customer::find($id)->creditCard;
     ```
+* belongsTo() relation (inverse of hasOne)
+  * App\Models\CreditCard
+    ```php
+        <?php
+
+        namespace App\Models;
+
+        use Illuminate\Database\Eloquent\Factories\HasFactory;
+        use Illuminate\Database\Eloquent\Model;
+
+        class CreditCard extends Model
+        {
+            public function customer()
+            {
+                // Card belongs to customer
+                return $this->belongsTo('App\Models\Customer');
+            }
+        }
+    ```
