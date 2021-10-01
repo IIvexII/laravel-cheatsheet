@@ -270,7 +270,8 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
         }
     }
   ```
-  * We need one credit card model and should have one customer_id or any unique column which represent to whome it blongs to.
+  * We need one credit card model and should have one customer_id or
+    any unique column which represent to whome it blongs to.
   * We can now get card belongs to a customer via this:
     ```php
         Customer::find($id)->creditCard;
