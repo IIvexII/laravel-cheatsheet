@@ -10,6 +10,7 @@
     - [Raw Queries](#raw-queries)
     - [Eloquent](#eloquent)
     - [Eloquent Relationship](#eloquent-relationship)
+    - [laravelcollective/html package](#laravelcollectivehtml-package)
 
 ### Routes
 
@@ -295,3 +296,39 @@ cache()->remember('variable_name', timeInSeconds, function () => use (external_v
             }
         }
     ```
+* hasMany() relation
+  * It means a model has many values of other model for example one Seller has many items to sell.
+    App\Models\Seller
+    ```php
+        <?php
+        namespace App\Models;
+
+        use Illuminate\Database\Eloquent\Factories\HasFactory;
+        use Illuminate\Database\Eloquent\Model;
+
+        class Seller extends Model
+        {
+            public function items()
+            {
+                return $this->hasMany('App\Models\Item');
+            }
+        }
+
+    ```
+    App\Http\Controllers\sellerController
+    ```php
+        public function viewItems($id)
+        {
+            return Seller::find($id)->items;
+        }
+    ```
+### laravelcollective/html package
+
+Basic skeleton
+```blade
+    {!! Form::open() !!}
+
+        <!-- Input fields here -->
+        
+    {!! Form::close() !!}
+```
